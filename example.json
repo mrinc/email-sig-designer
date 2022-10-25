@@ -1,0 +1,6 @@
+{
+  "vars": {
+    "name": "dasd"
+  },
+  "render": "<div>a:{{name}}</div>"
+}
