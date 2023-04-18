@@ -12,7 +12,8 @@
   "dependencies": {
     "handlebars": "^4.7.7",
     "the-new-css-reset": "^1.7.3",
-    "vue": "^3.2.41"
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
