@@ -55,7 +55,7 @@ const generateHtmlFromTemplate = () => {
         fields.value.push({
           name: vkey,
           type: 'text',
-          show: existingFields ? existingFields.find((f) => f.name === vkey)?.show : false,
+          show: existingFields ? existingFields.find((f: any) => f.name === vkey)?.show : false,
           value: {
             value: variables[vkey]
           },
@@ -67,7 +67,7 @@ const generateHtmlFromTemplate = () => {
             fields.value.push({
               name: vkey,
               type: 'url',
-              show: existingFields ? existingFields.find((f) => f.name === vkey)?.show : false,
+              show: existingFields ? existingFields.find((f: any) => f.name === vkey)?.show : false,
               value: {
                 text: variables[vkey].text,
                 url: variables[vkey].url,
@@ -78,7 +78,7 @@ const generateHtmlFromTemplate = () => {
             fields.value.push({
               name: vkey,
               type: 'email',
-              show: existingFields ? existingFields.find((f) => f.name === vkey)?.show : false,
+              show: existingFields ? existingFields.find((f: any) => f.name === vkey)?.show : false,
               value: {
                 text: variables[vkey].text,
                 url: variables[vkey].url,
@@ -89,7 +89,7 @@ const generateHtmlFromTemplate = () => {
             fields.value.push({
               name: vkey,
               type: 'phone',
-              show: existingFields ? existingFields.find((f) => f.name === vkey)?.show : false,
+              show: existingFields ? existingFields.find((f: any) => f.name === vkey)?.show : false,
               value: {
                 text: variables[vkey].text,
                 url: variables[vkey].url,
