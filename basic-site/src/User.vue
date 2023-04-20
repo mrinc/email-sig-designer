@@ -132,7 +132,7 @@ const uploadFile = () => {
                 <input type="text" v-model=" field.value.value " />
               </template>
               <template v-else-if=" field.type === 'boolean' ">
-                <input type="checkbox" v-model=" field.value.value " />
+                <input type="checkbox" v-model=" field.value.value as boolean" />
               </template>
               <template v-else-if=" field.type === 'email' ">
                 <span>
