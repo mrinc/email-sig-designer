@@ -40,7 +40,9 @@ const generateHtmlFromTemplate = () => {
         else if (field.type === 'phone')
           variables[field.name].url = 'tel:';
         variables[field.name].url += field.uvalue ?? field.value.url;
-      } else if (field.type === 'text')
+      } else if (field.type === 'boolean')
+        variables[field.name] = field.value.value;
+      else if (field.type === 'text')
         variables[field.name] = field.value.value;
     }
     //console.log(variables);
@@ -74,7 +76,9 @@ const uploadFile = () => {
       fields.value = decoded.fields;
       for (let field of fields.value) {
         field.uvalue = null;
-        if (field.type === 'url') {
+        if (field.type === 'boolean') {
+          field.uvalue = (field.value.value as boolean);
+        } else if (field.type === 'url') {
           field.uvalue = (field.value.url as string);
         } else if (field.type === 'email') {
           field.uvalue = (field.value.url as string).split('mailto:')[1];
@@ -126,6 +130,9 @@ const uploadFile = () => {
               <label>{{ field.name }}: </label><br />
               <template v-if=" field.type === 'text' ">
                 <input type="text" v-model=" field.value.value " />
+              </template>
+              <template v-else-if=" field.type === 'boolean' ">
+                <input type="checkbox" v-model=" field.value.value " />
               </template>
               <template v-else-if=" field.type === 'email' ">
                 <span>

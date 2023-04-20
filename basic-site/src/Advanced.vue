@@ -60,6 +60,15 @@ const generateHtmlFromTemplate = () => {
             value: variables[vkey]
           },
         });
+      } else if (typeof variables[vkey] === 'boolean') {
+        fields.value.push({
+          name: vkey,
+          type: 'boolean',
+          show: existingFields ? existingFields.find((f: any) => f.name === vkey)?.show : false,
+          value: {
+            value: variables[vkey]
+          },
+        });
       } else if (typeof variables[vkey] === 'object') {
         if (variables[vkey].url && variables[vkey].text) {
           // link
@@ -169,6 +178,9 @@ onMounted(() => {
         <label>{{ field.name }}: </label>
         <template v-if=" field.type === 'text' ">
           <input type="text" v-model=" field.value.value " />
+        </template>
+        <template v-else-if=" field.type === 'boolean' ">
+          <input type="checkbox" v-model=" field.value.value " />
         </template>
         <template v-else-if=" field.type === 'email' ">
           <input type="email" v-model=" field.value.text " />
