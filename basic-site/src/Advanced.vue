@@ -13,7 +13,7 @@ const fields = ref([]) as Ref<{
   name: string;
   type: string;
   show: boolean;
-  value: Record<string, string | boolean | number>;
+  value: Record<string, any>;
 }[]>;
 
 watch(fields, (val) => {
@@ -180,7 +180,7 @@ onMounted(() => {
           <input type="text" v-model=" field.value.value " />
         </template>
         <template v-else-if=" field.type === 'boolean' ">
-          <input type="checkbox" v-model=" field.value.value as boolean " />
+          <input type="checkbox" v-model=" field.value.value " class="appearance-none checked:bg-blue-500 mr-1" />
         </template>
         <template v-else-if=" field.type === 'email' ">
           <input type="email" v-model=" field.value.text " />
